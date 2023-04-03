@@ -33,26 +33,11 @@ jobs:
         env:
           ELEVENTY_ENV: production
           BASE_URL: "https://artbrutserbia.com/"
-      - name: Deploy to Github Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@3.6.2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          branch: gh-pages
-          folder: _site #the static site folder
-
-
-      # If you need more privacy / no tracking,
-      # sync your site to your own webspace
-      # https://github.com/marketplace/actions/ftp-deploy
-
-      # Build again if you need another path prefix
-      # - name: Install and Build for FTP 🔧
-      #   run: |
-      #    npm install
-      #    npm run build
-
-      #- name: 📂 Sync files
-      #  uses: SamKirkland/FTP-Deploy-Action@4.1.0
-      #  with:
-      #    server: ftp.samkirkland.com
-      #    username: myFtpUserName
-      #    password: ${{ secrets.ftp_password }}
+          # Upload entire repository
+          path: '_site/'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
