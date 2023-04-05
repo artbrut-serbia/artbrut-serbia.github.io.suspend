@@ -89,6 +89,7 @@ img {
 .content-wrap {
   text-align: justify;
   padding-bottom: 6rem;
+  padding-top: 3rem;
 }
 
 #footer {
@@ -100,4 +101,8 @@ img {
 
 #toggle-lang {
   cursor: pointer;
+}
+
+.nav-link {
+  font-size: 18px;
 }
